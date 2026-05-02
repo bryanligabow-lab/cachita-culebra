@@ -241,5 +241,209 @@ initCatNav('#drinkNav', '#drinkStage');
   render();
 })();
 
+/* =================== REWARDS =================== */
+(function(){
+  const KEY = 'cachita_rewards_v1';
+  const root = document.getElementById('rewards');
+  if (!root) return;
+
+  const $ = sel => root.querySelector(sel);
+  const tierName = $('#rwTierName');
+  const tierIconWrap = root.querySelector('.rw-tier');
+  const points = $('#rwPoints');
+  const visits = $('#rwVisits');
+  const streak = $('#rwStreak');
+  const claimed = $('#rwClaimed');
+  const progressLabel = $('#rwProgressLabel');
+  const progressPct = $('#rwProgressPct');
+  const progressFill = $('#rwProgressFill');
+  const claimBtn = $('#rwClaimBtn');
+  const claimMsg = $('#rwClaimMsg');
+  const history = $('#rwHistory');
+  const tierCards = root.querySelectorAll('.rw-tier-card');
+  const prizes = root.querySelectorAll('.rw-prize');
+  const resetBtn = $('#rwReset');
+  const toast = document.getElementById('rwToast');
+  const toastCode = document.getElementById('rwToastCode');
+  const toastDesc = document.getElementById('rwToastDesc');
+  const toastClose = document.getElementById('rwToastClose');
+
+  const TIERS = [
+    { id:'bronze',   name:'Bronce',   min:0,    max:499,  perVisit:50  },
+    { id:'silver',   name:'Plata',    min:500,  max:1499, perVisit:60  },
+    { id:'gold',     name:'Oro',      min:1500, max:2999, perVisit:75  },
+    { id:'platinum', name:'Platino',  min:3000, max:Infinity, perVisit:100 }
+  ];
+  function tierFor(pts){
+    return TIERS.find(t => pts >= t.min && pts <= t.max) || TIERS[0];
+  }
+  function nextTier(pts){
+    const idx = TIERS.findIndex(t => pts >= t.min && pts <= t.max);
+    return TIERS[idx + 1] || null;
+  }
+
+  function load(){
+    try {
+      const data = JSON.parse(localStorage.getItem(KEY));
+      if (!data) throw new Error();
+      return data;
+    } catch(e) {
+      return { points:0, visits:0, streak:0, lastVisit:null, claimed:0, history:[] };
+    }
+  }
+  function save(state){ localStorage.setItem(KEY, JSON.stringify(state)); }
+
+  function fmt(n){ return n.toLocaleString('es') }
+  function todayKey(){
+    const d = new Date(); return d.toISOString().slice(0,10);
+  }
+  function dayDiff(d1, d2){
+    const a = new Date(d1), b = new Date(d2);
+    return Math.round((b - a) / 86400000);
+  }
+  function fmtDate(ts){
+    const d = new Date(ts);
+    return d.toLocaleString('es', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' });
+  }
+  function genCode(){
+    const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+    const pick = n => Array.from({length:n}, () => chars[Math.floor(Math.random()*chars.length)]).join('');
+    return pick(4) + '-' + pick(4);
+  }
+
+  function render(){
+    const state = load();
+    const t = tierFor(state.points);
+    const nt = nextTier(state.points);
+
+    points.textContent = fmt(state.points);
+    visits.textContent = fmt(state.visits);
+    streak.textContent = fmt(state.streak);
+    claimed.textContent = fmt(state.claimed);
+
+    tierName.textContent = t.name;
+    tierIconWrap.dataset.tier = t.id;
+
+    if (nt){
+      const into = state.points - t.min;
+      const span = nt.min - t.min;
+      const pct = Math.min(100, Math.round((into / span) * 100));
+      progressLabel.textContent = `Te faltan ${fmt(nt.min - state.points)} pts para ${nt.name}`;
+      progressPct.textContent = pct + '%';
+      progressFill.style.width = pct + '%';
+    } else {
+      progressLabel.textContent = '¡Eres miembro Platino!';
+      progressPct.textContent = '100%';
+      progressFill.style.width = '100%';
+    }
+
+    tierCards.forEach(c => c.classList.toggle('current', c.dataset.tier === t.id));
+
+    prizes.forEach(p => {
+      const cost = parseInt(p.dataset.cost, 10);
+      const btn = p.querySelector('.rwp-redeem');
+      btn.disabled = state.points < cost;
+      btn.textContent = state.points < cost ? `Faltan ${fmt(cost - state.points)}` : 'Canjear';
+    });
+
+    // claim btn state
+    const today = todayKey();
+    if (state.lastVisit === today){
+      claimBtn.disabled = true;
+      claimBtn.querySelector('.bm-label').textContent = '✓ Visita registrada hoy';
+      claimMsg.textContent = `Vuelve mañana para sumar ${tierFor(state.points).perVisit} pts más.`;
+    } else {
+      claimBtn.disabled = false;
+      claimBtn.querySelector('.bm-label').textContent = `Registrar visita · +${tierFor(state.points).perVisit} pts`;
+      claimMsg.textContent = '';
+    }
+
+    // history
+    if (!state.history.length){
+      history.innerHTML = '<div class="rw-empty">Aún no tienes movimientos. Registra tu primera visita arriba.</div>';
+    } else {
+      history.innerHTML = state.history.slice().reverse().slice(0, 30).map(h => `
+        <div class="rw-entry">
+          <div class="rw-entry-left">
+            <span class="rw-entry-act">${h.act}</span>
+            <span class="rw-entry-date">${fmtDate(h.ts)}</span>
+          </div>
+          <span class="rw-entry-pts ${h.delta > 0 ? 'plus' : 'minus'}">${h.delta > 0 ? '+' : ''}${fmt(h.delta)} pts</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  // Claim today's visit
+  claimBtn.addEventListener('click', () => {
+    const state = load();
+    const today = todayKey();
+    if (state.lastVisit === today) return;
+    const t = tierFor(state.points);
+    let delta = t.perVisit;
+    let act = `Visita registrada · ${t.name}`;
+
+    // streak
+    if (state.lastVisit && dayDiff(state.lastVisit, today) === 1){
+      state.streak = (state.streak || 0) + 1;
+    } else {
+      state.streak = 1;
+    }
+    // streak bonus every 5 days
+    let bonus = 0;
+    if (state.streak > 0 && state.streak % 5 === 0){
+      bonus = 100;
+    }
+
+    state.points += delta;
+    state.visits += 1;
+    state.lastVisit = today;
+    state.history.push({ act, delta, ts: Date.now() });
+    if (bonus){
+      state.points += bonus;
+      state.history.push({ act: `Bonus racha de ${state.streak} días`, delta: bonus, ts: Date.now() + 1 });
+    }
+    save(state);
+    render();
+
+    claimMsg.classList.add('success');
+    claimMsg.textContent = `+${delta} pts${bonus ? ` · Bonus +${bonus}` : ''} · Total ${fmt(state.points)} pts`;
+    setTimeout(() => claimMsg.classList.remove('success'), 4000);
+  });
+
+  // Redeem prizes
+  prizes.forEach(p => {
+    const btn = p.querySelector('.rwp-redeem');
+    btn.addEventListener('click', () => {
+      const state = load();
+      const cost = parseInt(p.dataset.cost, 10);
+      if (state.points < cost) return;
+      const name = p.querySelector('h4').textContent;
+      const code = genCode();
+      state.points -= cost;
+      state.claimed += 1;
+      state.history.push({ act: `Canje · ${name} (${code})`, delta: -cost, ts: Date.now() });
+      save(state);
+      render();
+
+      // toast
+      toastCode.textContent = code;
+      toastDesc.textContent = name;
+      toast.classList.add('show');
+    });
+  });
+
+  toastClose.addEventListener('click', () => toast.classList.remove('show'));
+  toast.addEventListener('click', (e) => { if (e.target === toast) toast.classList.remove('show'); });
+
+  resetBtn.addEventListener('click', () => {
+    if (!confirm('¿Seguro que quieres reiniciar tu cuenta de Rewards? Esta acción no se puede deshacer.')) return;
+    localStorage.removeItem(KEY);
+    render();
+  });
+
+  render();
+})();
+
 /* =================== FOOTER YEAR =================== */
 document.getElementById('year').textContent = new Date().getFullYear();

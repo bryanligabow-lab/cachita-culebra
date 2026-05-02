@@ -46,6 +46,7 @@
       <a href="#menu">Menú</a>
       <a href="#bebidas">Bebidas</a>
       <a href="#galeria">Galería</a>
+      <a href="#rewards">Rewards</a>
       <a href="#opina" class="tb-cta">★ Opina</a>
     </nav>
   </div>
@@ -446,6 +447,155 @@
     <svg viewBox="0 0 24 24" width="22" height="22"><path d="M6 6l12 12M6 18L18 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
   </button>
   <img id="lbImg" src="" alt=""/>
+</div>
+
+<!-- =========== REWARDS =========== -->
+<section class="rewards" id="rewards">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">Programa de fidelidad</span>
+      <h2 class="sec-title">Cachita <em>Rewards</em></h2>
+      <p class="sec-sub">Acumula puntos por cada visita y canjéalos por experiencias exclusivas.</p>
+    </header>
+
+    <!-- Member card -->
+    <div class="rw-card">
+      <div class="rw-card-bg" aria-hidden="true">
+        <div class="rw-card-glow"></div>
+      </div>
+
+      <div class="rw-card-top">
+        <div class="rw-tier">
+          <span class="rw-tier-label">Tu nivel</span>
+          <strong id="rwTierName">Bronce</strong>
+          <span class="rw-tier-icon" id="rwTierIcon">●</span>
+        </div>
+        <div class="rw-points">
+          <span class="rw-points-label">Puntos</span>
+          <strong id="rwPoints">0</strong>
+        </div>
+      </div>
+
+      <div class="rw-progress">
+        <div class="rw-progress-info">
+          <span id="rwProgressLabel">Te faltan 500 puntos para Plata</span>
+          <span id="rwProgressPct">0%</span>
+        </div>
+        <div class="rw-progress-bar"><span id="rwProgressFill"></span></div>
+      </div>
+
+      <div class="rw-stats">
+        <div class="rw-stat">
+          <strong id="rwVisits">0</strong>
+          <span>Visitas totales</span>
+        </div>
+        <div class="rw-stat">
+          <strong id="rwStreak">0</strong>
+          <span>Racha actual</span>
+        </div>
+        <div class="rw-stat">
+          <strong id="rwClaimed">0</strong>
+          <span>Recompensas canjeadas</span>
+        </div>
+      </div>
+
+      <div class="rw-cta">
+        <button class="rw-claim btn-menu" id="rwClaimBtn">
+          <span class="bm-label">Registrar visita de hoy</span>
+          <span class="bm-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" fill="currentColor"/></svg></span>
+        </button>
+        <p class="rw-claim-msg" id="rwClaimMsg"></p>
+      </div>
+    </div>
+
+    <!-- Tiers -->
+    <div class="rw-tiers">
+      <div class="rw-tier-card" data-tier="bronze">
+        <span class="rwt-dot"></span>
+        <h4>Bronce</h4>
+        <span class="rwt-range">0 – 499 pts</span>
+        <ul><li>50 pts por visita</li></ul>
+      </div>
+      <div class="rw-tier-card" data-tier="silver">
+        <span class="rwt-dot"></span>
+        <h4>Plata</h4>
+        <span class="rwt-range">500 – 1.499 pts</span>
+        <ul><li>60 pts por visita</li><li>Postre cortesía mensual</li></ul>
+      </div>
+      <div class="rw-tier-card" data-tier="gold">
+        <span class="rwt-dot"></span>
+        <h4>Oro</h4>
+        <span class="rwt-range">1.500 – 2.999 pts</span>
+        <ul><li>75 pts por visita</li><li>Welcome drink</li><li>Reserva prioritaria</li></ul>
+      </div>
+      <div class="rw-tier-card" data-tier="platinum">
+        <span class="rwt-dot"></span>
+        <h4>Platino</h4>
+        <span class="rwt-range">3.000+ pts</span>
+        <ul><li>100 pts por visita</li><li>Mesa VIP</li><li>Eventos exclusivos</li></ul>
+      </div>
+    </div>
+
+    <!-- Catalog -->
+    <h3 class="rw-section-title">Canjea tus puntos</h3>
+    <div class="rw-catalog" id="rwCatalog">
+      <article class="rw-prize" data-cost="100" data-id="dessert">
+        <div class="rwp-icon">🍰</div>
+        <h4>Postre cortesía</h4>
+        <p>Cualquier postre del menú al canjearlo en mesa.</p>
+        <div class="rwp-foot"><span class="rwp-cost">100 pts</span><button class="rwp-redeem">Canjear</button></div>
+      </article>
+      <article class="rw-prize" data-cost="200" data-id="welcome">
+        <div class="rwp-icon">🥂</div>
+        <h4>Welcome drink</h4>
+        <p>Cóctel de bienvenida al iniciar tu velada.</p>
+        <div class="rwp-foot"><span class="rwp-cost">200 pts</span><button class="rwp-redeem">Canjear</button></div>
+      </article>
+      <article class="rw-prize" data-cost="500" data-id="off10">
+        <div class="rwp-icon">💸</div>
+        <h4>10% de descuento</h4>
+        <p>Aplicable a tu próxima cuenta.</p>
+        <div class="rwp-foot"><span class="rwp-cost">500 pts</span><button class="rwp-redeem">Canjear</button></div>
+      </article>
+      <article class="rw-prize featured" data-cost="1000" data-id="signature">
+        <span class="rwp-flag">Signature</span>
+        <div class="rwp-icon">🐍</div>
+        <h4>Cóctel Cachita Culebra</h4>
+        <p>Nuestro cóctel firma, gratis para ti.</p>
+        <div class="rwp-foot"><span class="rwp-cost">1.000 pts</span><button class="rwp-redeem">Canjear</button></div>
+      </article>
+      <article class="rw-prize" data-cost="2000" data-id="off25">
+        <div class="rwp-icon">🎁</div>
+        <h4>25% de descuento</h4>
+        <p>Para tu próxima visita en grupo.</p>
+        <div class="rwp-foot"><span class="rwp-cost">2.000 pts</span><button class="rwp-redeem">Canjear</button></div>
+      </article>
+      <article class="rw-prize" data-cost="3500" data-id="vip">
+        <div class="rwp-icon">👑</div>
+        <h4>Mesa VIP + Tablita</h4>
+        <p>Mesa preferencial con Tablita Cachita Culebra incluida.</p>
+        <div class="rwp-foot"><span class="rwp-cost">3.500 pts</span><button class="rwp-redeem">Canjear</button></div>
+      </article>
+    </div>
+
+    <!-- History -->
+    <h3 class="rw-section-title">Tu historial</h3>
+    <div class="rw-history" id="rwHistory">
+      <div class="rw-empty">Aún no tienes movimientos. Registra tu primera visita arriba.</div>
+    </div>
+    <button class="rw-reset" id="rwReset">Reiniciar mi cuenta</button>
+  </div>
+</section>
+
+<!-- Toast for redeem code -->
+<div class="rw-toast" id="rwToast" aria-hidden="true">
+  <div class="rwt-content">
+    <span class="rwt-eyebrow">Código de canje</span>
+    <strong class="rwt-code" id="rwToastCode">XXXX-XXXX</strong>
+    <p class="rwt-desc" id="rwToastDesc"></p>
+    <small>Muéstralo en mesa para reclamar tu recompensa.</small>
+    <button class="rwt-close" id="rwToastClose">Listo</button>
+  </div>
 </div>
 
 <!-- =========== OPINA =========== -->
