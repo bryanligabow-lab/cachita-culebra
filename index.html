@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cachita Culebra · Carta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =========== PRELOADER =========== -->
+<div class="preloader" id="preloader">
+  <div class="preloader-bg"></div>
+  <div class="preloader-aura"></div>
+  <div class="preloader-stage">
+    <div class="logo-stage">
+      <span class="logo-glow"></span>
+      <img src="img/logo-white.png" alt="Cachita Culebra" class="brand-logo" />
+    </div>
+    <h1 class="preloader-brand">
+      <span class="line">
+        <span class="char">C</span><span class="char">A</span><span class="char">C</span><span class="char">H</span><span class="char">I</span><span class="char">T</span><span class="char">A</span>
+      </span>
+      <span class="line line-2">
+        <span class="char">C</span><span class="char">U</span><span class="char">L</span><span class="char">E</span><span class="char">B</span><span class="char">R</span><span class="char">A</span>
+      </span>
+    </h1>
+    <div class="preloader-progress">
+      <span class="bar"></span>
+      <span class="pct">00</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== TOPBAR (appears on scroll) =========== -->
+<header class="topbar" id="topbar">
+  <div class="container topbar-inner">
+    <a href="#hero" class="tb-logo">
+      <img src="img/logo-white.png" alt="" />
+      <span>Cachita Culebra</span>
+    </a>
+    <nav class="tb-nav">
+      <a href="#menu">Menú</a>
+      <a href="#bebidas">Bebidas</a>
+      <a href="#galeria">Galería</a>
+      <a href="#opina" class="tb-cta">★ Opina</a>
+    </nav>
+  </div>
+</header>
+
+<!-- =========== HERO =========== -->
+<section class="hero" id="hero">
+  <div class="hero-art" aria-hidden="true">
+    <img src="img/hero-bg.jpg" alt="" class="hero-art-img" />
+    <div class="hero-art-overlay"></div>
+  </div>
+  <div class="hero-vignette"></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-particles" aria-hidden="true">
+    <span class="p p1"></span><span class="p p2"></span><span class="p p3"></span>
+    <span class="p p4"></span><span class="p p5"></span><span class="p p6"></span>
+    <span class="p p7"></span><span class="p p8"></span><span class="p p9"></span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge reveal" data-delay="0">
+      <span class="line"></span>
+      <span>Restaurante · Bar</span>
+      <span class="line"></span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="word reveal-word"><span>C</span><span>A</span></span>
+      <span class="word reveal-word"><span>C</span><span>H</span><span>I</span><span>T</span><span>A</span></span>
+      <span class="word reveal-word hero-script">CULEBRA</span>
+    </h1>
+
+    <p class="hero-tagline reveal" data-delay="900">
+      Una experiencia <em>mística</em> en cada plato
+    </p>
+
+    <div class="hero-cta reveal" data-delay="1100">
+      <a href="#menu" class="btn-menu">
+        <span class="bm-label">Ver la carta</span>
+        <span class="bm-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a href="#opina" class="btn-ghost">★ Opina</a>
+    </div>
+
+    <div class="hero-down reveal" data-delay="1400">
+      <span>Desliza</span>
+      <svg viewBox="0 0 24 24" width="14" height="14" class="bounce">
+        <path d="M12 5v14m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- =========== MENU =========== -->
+<section class="menu" id="menu">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">Carta</span>
+      <h2 class="sec-title">Nuestro <em>menú</em></h2>
+      <p class="sec-sub">Selecciona una categoría para explorar.</p>
+    </header>
+
+    <nav class="cat-nav" id="catNav" aria-label="Categorías de la carta">
+      <button class="cat-pill active" data-cat="entradas">Entradas</button>
+      <button class="cat-pill" data-cat="piqueos">Piqueos</button>
+      <button class="cat-pill" data-cat="fuertes">Platos Fuertes</button>
+      <button class="cat-pill" data-cat="pastas">Pastas</button>
+      <button class="cat-pill" data-cat="ensaladas">Ensaladas</button>
+      <button class="cat-pill" data-cat="urbana">Comida Urbana</button>
+      <button class="cat-pill" data-cat="infantil">Infantil</button>
+    </nav>
+
+    <div class="cat-stage" id="catStage">
+
+      <article class="cat-section active" data-cat="entradas">
+        <header class="cat-head">
+          <span class="cat-no">01</span>
+          <h3>Entradas</h3>
+          <span class="cat-tag">Para empezar</span>
+        </header>
+        <div class="item-list">
+          <div class="item"><div class="item-meta"><h4>Shawarmas &amp; Chicken</h4><p>4 shawarmas personales de pollo marinado en yogurt griego, con papas a la francesa jumbo.</p></div><span class="leader"></span><span class="price">$23.50</span></div>
+          <div class="item"><div class="item-meta"><h4>Salpicón de Mariscos</h4><p>Frutos del mar salteados con vino blanco, perejil y aceto balsámico, con vinagreta de cítricos.</p></div><span class="leader"></span><span class="price">$15.39</span></div>
+          <div class="item"><div class="item-meta"><h4>Camita de Langostinos <span class="badge">Premium</span></h4><p>Langostinos en cama de queso y jalapeños, con crocante de tocino y salsa feenship.</p></div><span class="leader"></span><span class="price">$24.10</span></div>
+        </div>
+      </article>
+
+      <article class="cat-section" data-cat="piqueos">
+        <header class="cat-head">
+          <span class="cat-no">02</span>
+          <h3>Piqueos</h3>
+          <span class="cat-tag">Para compartir</span>
+        </header>
+        <div class="item-list">
+          <div class="item"><div class="item-meta"><h4>Tendidas de Camarón</h4><p>Camarones empanizados en panko japonés con las mejores salsas de la casa.</p></div><span class="leader"></span><span class="price">$21.00</span></div>
+          <div class="item featured"><div class="item-meta"><h4>Tablita Cachita Culebra <span class="badge">Signature</span></h4><p>45 cm de puro sabor: 3 brochetas de res, 3 de camarón, 3 de cochinillo, chorizos de romero, vegetales y papas jumbo.</p></div><span class="leader"></span><span class="price">$29.90</span></div>
+          <div class="item"><div class="item-meta"><h4>Ropa Tendida</h4><p>Jamón serrano, jamón de ajo, piqueo de higos, variedad de quesos y aceitunas.</p></div><span class="leader"></span><span class="price">$20.00</span></div>
+          <div class="item"><div class="item-meta"><h4>Changuitas Doradas</h4><p>8 piernas de pollo al grill con especias orientales y ajonjolí, salsa del Chef y papas jumbo.</p></div><span class="leader"></span><span class="price">$23.90</span></div>
+          <div class="item"><div class="item-meta"><h4>Nacho Guaracho</h4><p>Tortillas de maíz artesanales con lomitos de res y cerdo salteados en wok y vegetales del huerto.</p></div><span class="leader"></span><span class="price">$14.00</span></div>
+          <div class="item"><div class="item-meta"><h4>Diablilla de Pooplers</h4><p>Esferas empanizadas en panko oriental, rellenas de queso cremoso y ají habanero.</p></div><span class="leader"></span><span class="price">$12.50</span></div>
+        </div>
+      </article>
+
+      <article class="cat-section" data-cat="fuertes">
+        <header class="cat-head">
+          <span class="cat-no">03</span>
+          <h3>Platos Fuertes</h3>
+          <span class="cat-tag">Escoge el término</span>
+        </header>
+        <div class="item-list">
+          <div class="item"><div class="item-meta"><h4>Filet Mignon</h4><p>300 gr. de lomo fino de res, madurado y marinado en finas hierbas con un toque del chef.</p></div><span class="leader"></span><span class="price">$19.25</span></div>
+          <div class="item"><div class="item-meta"><h4>Lomo Fino a las 3 Pimientas</h4><p>Lomo sazonado con una mezcla de tres pimientas y especias al estilo de la casa.</p></div><span class="leader"></span><span class="price">$18.50</span></div>
+          <div class="item"><div class="item-meta"><h4>Solomillo de Cerdo en Salsa de Naranja</h4><p>Lomo fino de cochinillo, marinado en cítricos de naranja y miel.</p></div><span class="leader"></span><span class="price">$18.90</span></div>
+          <div class="item"><div class="item-meta"><h4>Bife de Chorizo</h4><p>Lomo de falda con grasa cutánea, madurado en cámara y cocido a fuego lento.</p></div><span class="leader"></span><span class="price">$18.10</span></div>
+          <div class="item featured"><div class="item-meta"><h4>T-Bone <span class="badge">Signature</span></h4><p>400 gr. con marmoleado exquisito, preparado al carbón para una cocción lenta.</p></div><span class="leader"></span><span class="price">$19.25</span></div>
+          <div class="item"><div class="item-meta"><h4>Lomo a la Pizzaiola</h4><p>300 gr. de cabeza de lomo fino, demi glacé, salsa de queso y gratinado al instante.</p></div><span class="leader"></span><span class="price">$22.90</span></div>
+          <div class="item"><div class="item-meta"><h4>Costillas en Salsa BBQ</h4><p>500 gr. de costillas cocidas a fuego lento. Toda la elaboración la hace el chef.</p></div><span class="leader"></span><span class="price">$18.90</span></div>
+          <div class="item"><div class="item-meta"><h4>Tomahawk</h4><p>600 gr. inspirado en los vikingos. Nuestro chef ha recreado con exactitud su cocción.</p></div><span class="leader"></span><span class="price">$22.80</span></div>
+          <div class="item"><div class="item-meta"><h4>Ribeye</h4><p>350 gr. de asado en leña, peso y marmoleado perfectos.</p></div><span class="leader"></span><span class="price">$16.90</span></div>
+          <div class="item"><div class="item-meta"><h4>Pollo al Huerto</h4><p>Pechuga de ave criada en campo con salsa de ingredientes frescos del huerto.</p></div><span class="leader"></span><span class="price">$13.90</span></div>
+          <div class="item"><div class="item-meta"><h4>Pollo al Vino</h4><p>Pechuga de 300 gr. marinada en Chardonnay, con salsa de hongos.</p></div><span class="leader"></span><span class="price">$16.90</span></div>
+        </div>
+      </article>
+
+      <article class="cat-section" data-cat="pastas">
+        <header class="cat-head">
+          <span class="cat-no">04</span>
+          <h3>Pastas</h3>
+          <span class="cat-tag">Italia en casa</span>
+        </header>
+        <div class="item-list">
+          <div class="item"><div class="item-meta"><h4>Fettuccini Frutti di Mare</h4><p>Pasta artesanal con base de salsa de quesos, pesca del día y selección de frutos del mar.</p></div><span class="leader"></span><span class="price">$23.00</span></div>
+          <div class="item"><div class="item-meta"><h4>Spaghetti alla Carbonara</h4><p>Pasta fresca tradicional con salsa carbonara enriquecida con el toque del Chef.</p></div><span class="leader"></span><span class="price">$16.90</span></div>
+          <div class="item"><div class="item-meta"><h4>Spaghetti alla Boloñesa</h4><p>Tagliatelle en ragú artesanal y carne molida de lomo. Italiano de buen gusto.</p></div><span class="leader"></span><span class="price">$18.00</span></div>
+        </div>
+      </article>
+
+      <article class="cat-section" data-cat="ensaladas">
+        <header class="cat-head">
+          <span class="cat-no">05</span>
+          <h3>Ensaladas</h3>
+          <span class="cat-tag">Frescura</span>
+        </header>
+        <div class="item-list">
+          <div class="item"><div class="item-meta"><h4>Cesar Salad</h4><p>Tradicional con aderezo de anchoas único, parmesano y crotones artesanales.</p></div><span class="leader"></span><span class="price">$8.69</span></div>
+          <div class="item"><div class="item-meta"><h4>Chicken Cesar Salad</h4><p>Tradicional con pollo de la casa, aderezo de anchoas, parmesano y crotones.</p></div><span class="leader"></span><span class="price">$11.80</span></div>
+          <div class="item"><div class="item-meta"><h4>Ensalada Capresse</h4><p>Combinación fresca de tomate, mozzarella, albahaca y aceite de oliva.</p></div><span class="leader"></span><span class="price">$8.69</span></div>
+        </div>
+      </article>
+
+      <article class="cat-section" data-cat="urbana">
+        <header class="cat-head">
+          <span class="cat-no">06</span>
+          <h3>Comida Urbana</h3>
+          <span class="cat-tag">Lo callejero, elevado</span>
+        </header>
+        <div class="item-list">
+          <div class="item"><div class="item-meta"><h4>Hamburguesa Napolitana</h4><p>Pan artesanal con mayonesa de albahaca, bife molido, queso, jamón, tocino y un toque de ají.</p></div><span class="leader"></span><span class="price">$11.80</span></div>
+          <div class="item"><div class="item-meta"><h4>Hamburguesa Bacon Cheese</h4><p>Pan artesanal con bife molido, extra queso, tocino y la salsa especial de la casa.</p></div><span class="leader"></span><span class="price">$12.10</span></div>
+          <div class="item featured"><div class="item-meta"><h4>Alitas de Culebra <span class="badge">Hit</span></h4><p>12 alitas en tempura con las mejores salsas del chef y papas a la francesa.</p></div><span class="leader"></span><span class="price">$22.50</span></div>
+        </div>
+      </article>
+
+      <article class="cat-section" data-cat="infantil">
+        <header class="cat-head">
+          <span class="cat-no">07</span>
+          <h3>Menú Infantil</h3>
+          <span class="cat-tag">Para los pequeños</span>
+        </header>
+        <div class="item-list">
+          <div class="item"><div class="item-meta"><h4>Hamburguesa</h4><p>300 gr. de carne, con queso y porción de papas.</p></div><span class="leader"></span><span class="price">$7.50</span></div>
+          <div class="item"><div class="item-meta"><h4>Lomo de Res</h4><p>100 gr. de cabeza de lomo fino, con porción de papas.</p></div><span class="leader"></span><span class="price">$7.50</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="iva-note">Los precios no incluyen IVA</p>
+  </div>
+</section>
+
+<!-- =========== BEBIDAS =========== -->
+<section class="bebidas" id="bebidas">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">La barra</span>
+      <h2 class="sec-title">Bebidas &amp; <em>cócteles</em></h2>
+      <p class="sec-sub">Una experiencia líquida.</p>
+    </header>
+
+    <div class="signature">
+      <div class="signature-glow"></div>
+      <div class="signature-content">
+        <span class="sig-tag">Cóctel firma</span>
+        <h3 class="sig-title">Cachita <em>Culebra</em></h3>
+        <p class="sig-desc">Nuestro cóctel insignia. Atrevido y seductor, captura la esencia de la noche.</p>
+        <div class="sig-meta">
+          <span class="sig-price">$13.91</span>
+          <span class="sig-divider"></span>
+          <span class="sig-label">Edición de la casa</span>
+        </div>
+      </div>
+      <div class="signature-glass" aria-hidden="true">
+        <svg viewBox="0 0 200 280" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M40 30 L160 30 L130 130 Q100 160 70 130 Z"/>
+          <path d="M100 160 L100 240"/>
+          <path d="M70 240 L130 240"/>
+          <path d="M55 60 Q70 70 100 70 Q130 70 145 60"/>
+          <circle cx="80" cy="85" r="2" fill="currentColor"/>
+          <circle cx="115" cy="100" r="1.5" fill="currentColor"/>
+          <circle cx="95" cy="115" r="2" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+
+    <nav class="cat-nav" id="drinkNav">
+      <button class="cat-pill active" data-cat="cocteles">Cócteles</button>
+      <button class="cat-pill" data-cat="cervezas">Cervezas</button>
+      <button class="cat-pill" data-cat="vinos">Vinos</button>
+      <button class="cat-pill" data-cat="whisky">Whisky</button>
+      <button class="cat-pill" data-cat="ron">Ron</button>
+      <button class="cat-pill" data-cat="tequila">Tequila</button>
+      <button class="cat-pill" data-cat="ginebra">Ginebra</button>
+      <button class="cat-pill" data-cat="aguardiente">Aguardiente</button>
+      <button class="cat-pill" data-cat="licores">Licores</button>
+      <button class="cat-pill" data-cat="sin">Sin Alcohol</button>
+    </nav>
+
+    <div class="cat-stage" id="drinkStage">
+      <article class="cat-section active" data-cat="cocteles">
+        <div class="item-list compact">
+          <div class="item"><div class="item-meta"><h4>Negroni</h4></div><span class="leader"></span><span class="price">$13.91</span></div>
+          <div class="item featured"><div class="item-meta"><h4>Cachita Culebra <span class="badge">Signature</span></h4></div><span class="leader"></span><span class="price">$13.91</span></div>
+          <div class="item"><div class="item-meta"><h4>Aperol Spritz</h4></div><span class="leader"></span><span class="price">$13.91</span></div>
+          <div class="item"><div class="item-meta"><h4>Jagger Boom</h4></div><span class="leader"></span><span class="price">$13.91</span></div>
+          <div class="item"><div class="item-meta"><h4>Ron Fashion</h4></div><span class="leader"></span><span class="price">$13.91</span></div>
+          <div class="item"><div class="item-meta"><h4>Old Fashion</h4></div><span class="leader"></span><span class="price">$10.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Martini</h4></div><span class="leader"></span><span class="price">$10.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Moscow Mule</h4></div><span class="leader"></span><span class="price">$10.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Long Island</h4></div><span class="leader"></span><span class="price">$10.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Gin Frutos Rojos</h4></div><span class="leader"></span><span class="price">$10.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Margarita</h4></div><span class="leader"></span><span class="price">$10.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Aperol Margarita</h4></div><span class="leader"></span><span class="price">$10.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Tinto de Verano</h4></div><span class="leader"></span><span class="price">$8.70</span></div>
+          <div class="item"><div class="item-meta"><h4>Piña Colada</h4></div><span class="leader"></span><span class="price">$8.70</span></div>
+          <div class="item"><div class="item-meta"><h4>Paloma</h4></div><span class="leader"></span><span class="price">$8.70</span></div>
+          <div class="item"><div class="item-meta"><h4>Mojito Clásico</h4></div><span class="leader"></span><span class="price">$8.70</span></div>
+          <div class="item"><div class="item-meta"><h4>Padrino</h4></div><span class="leader"></span><span class="price">$8.70</span></div>
+          <div class="item"><div class="item-meta"><h4>Caipirinha</h4></div><span class="leader"></span><span class="price">$8.70</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="cervezas">
+        <h4 class="sub-title">Cervezas</h4>
+        <div class="item-list compact">
+          <div class="item"><div class="item-meta"><h4>Club</h4></div><span class="leader"></span><span class="price">$4.20</span></div>
+          <div class="item"><div class="item-meta"><h4>Corona</h4></div><span class="leader"></span><span class="price">$5.05</span></div>
+          <div class="item"><div class="item-meta"><h4>Modelo</h4></div><span class="leader"></span><span class="price">$5.80</span></div>
+          <div class="item"><div class="item-meta"><h4>Cerveza artesanal</h4></div><span class="leader"></span><span class="price">$6.09</span></div>
+        </div>
+        <h4 class="sub-title">Micheladas</h4>
+        <div class="item-list compact">
+          <div class="item"><div class="item-meta"><h4>Michelada Club</h4></div><span class="leader"></span><span class="price">$5.65</span></div>
+          <div class="item"><div class="item-meta"><h4>Michelada Corona</h4></div><span class="leader"></span><span class="price">$6.50</span></div>
+          <div class="item"><div class="item-meta"><h4>Michelada Modelo</h4></div><span class="leader"></span><span class="price">$7.39</span></div>
+        </div>
+        <h4 class="sub-title">Combos</h4>
+        <div class="item-list compact">
+          <div class="item"><div class="item-meta"><h4>4 jarras artesanal + picada diablo</h4></div><span class="leader"></span><span class="price">$23.81</span></div>
+          <div class="item"><div class="item-meta"><h4>4 jarras Modelo + picada diablo</h4></div><span class="leader"></span><span class="price">$22.81</span></div>
+          <div class="item"><div class="item-meta"><h4>4 jarras Corona + picada diablo</h4></div><span class="leader"></span><span class="price">$19.45</span></div>
+          <div class="item"><div class="item-meta"><h4>4 jarras Club + picada diablo</h4></div><span class="leader"></span><span class="price">$17.39</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="vinos">
+        <div class="item-list compact">
+          <div class="item featured"><div class="item-meta"><h4>Moët &amp; Chandon White</h4></div><span class="leader"></span><span class="price">$203.04</span></div>
+          <div class="item"><div class="item-meta"><h4>Don Silvestre Gran Reserva</h4></div><span class="leader"></span><span class="price">$78.26</span></div>
+          <div class="item"><div class="item-meta"><h4>Don Silvestre Reserva Cabernet</h4></div><span class="leader"></span><span class="price">$65.22</span></div>
+          <div class="item"><div class="item-meta"><h4>Don Silvestre Reserva Merlot</h4></div><span class="leader"></span><span class="price">$65.22</span></div>
+          <div class="item"><div class="item-meta"><h4>Calvet Rosé Espumante</h4></div><span class="leader"></span><span class="price">$50.87</span></div>
+          <div class="item"><div class="item-meta"><h4>Concha y Toro Reservados</h4></div><span class="leader"></span><span class="price">$52.17</span></div>
+          <div class="item"><div class="item-meta"><h4>Lambrusco</h4></div><span class="leader"></span><span class="price">$36.13</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="whisky">
+        <div class="item-list compact">
+          <div class="item featured"><div class="item-meta"><h4>Johnnie Walker Blue Label</h4></div><span class="leader"></span><span class="price">$192.61</span></div>
+          <div class="item featured"><div class="item-meta"><h4>Johnnie Walker Green Label</h4></div><span class="leader"></span><span class="price">$243.48</span></div>
+          <div class="item"><div class="item-meta"><h4>Johnnie Walker Gold Label</h4></div><span class="leader"></span><span class="price">$130.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Johnnie Walker Black Label</h4></div><span class="leader"></span><span class="price">$78.26</span></div>
+          <div class="item"><div class="item-meta"><h4>Johnnie Walker Red Label</h4></div><span class="leader"></span><span class="price">$65.22</span></div>
+          <div class="item"><div class="item-meta"><h4>Buchanan's</h4></div><span class="leader"></span><span class="price">$86.96</span></div>
+          <div class="item"><div class="item-meta"><h4>Old Parr</h4></div><span class="leader"></span><span class="price">$130.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Chivas Regal 12 años</h4></div><span class="leader"></span><span class="price">$130.43</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="ron">
+        <div class="item-list compact">
+          <div class="item"><div class="item-meta"><h4>Abuelo 12 años Three Angels</h4></div><span class="leader"></span><span class="price">$109.00</span></div>
+          <div class="item"><div class="item-meta"><h4>Abuelo 12 años</h4></div><span class="leader"></span><span class="price">$96.65</span></div>
+          <div class="item"><div class="item-meta"><h4>Flor de Caña 12 años</h4></div><span class="leader"></span><span class="price">$95.65</span></div>
+          <div class="item"><div class="item-meta"><h4>Flor de Caña 7 años</h4></div><span class="leader"></span><span class="price">$86.96</span></div>
+          <div class="item"><div class="item-meta"><h4>Abuelo 7 años</h4></div><span class="leader"></span><span class="price">$60.87</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="tequila">
+        <div class="item-list compact">
+          <div class="item featured"><div class="item-meta"><h4>Patrón Silver</h4></div><span class="leader"></span><span class="price">$130.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Jose Cuervo Gold</h4></div><span class="leader"></span><span class="price">$95.65</span></div>
+          <div class="item"><div class="item-meta"><h4>Rancho Pueblo Viejo</h4></div><span class="leader"></span><span class="price">$52.17</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="ginebra">
+        <div class="item-list compact">
+          <div class="item featured"><div class="item-meta"><h4>Hendrick's</h4></div><span class="leader"></span><span class="price">$113.04</span></div>
+          <div class="item"><div class="item-meta"><h4>Whitley Neill Gin</h4></div><span class="leader"></span><span class="price">$69.57</span></div>
+          <div class="item"><div class="item-meta"><h4>Bombay</h4></div><span class="leader"></span><span class="price">$39.50</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="aguardiente">
+        <div class="item-list compact">
+          <div class="item"><div class="item-meta"><h4>Antioqueño Real</h4></div><span class="leader"></span><span class="price">$78.26</span></div>
+          <div class="item"><div class="item-meta"><h4>Amarillo Manzanares</h4></div><span class="leader"></span><span class="price">$52.17</span></div>
+          <div class="item"><div class="item-meta"><h4>Antioqueño</h4></div><span class="leader"></span><span class="price">$52.17</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="licores">
+        <div class="item-list compact">
+          <div class="item featured"><div class="item-meta"><h4>Jack Daniels</h4></div><span class="leader"></span><span class="price">$139.13</span></div>
+          <div class="item"><div class="item-meta"><h4>Jägermeister 2 Monster</h4></div><span class="leader"></span><span class="price">$130.43</span></div>
+          <div class="item"><div class="item-meta"><h4>Vodka Grey Goose</h4></div><span class="leader"></span><span class="price">$86.96</span></div>
+          <div class="item"><div class="item-meta"><h4>Media de cigarrillos</h4></div><span class="leader"></span><span class="price">$9.50</span></div>
+        </div>
+      </article>
+      <article class="cat-section" data-cat="sin">
+        <div class="item-list compact">
+          <div class="item"><div class="item-meta"><h4>Limonada</h4></div><span class="leader"></span><span class="price">$1.74</span></div>
+          <div class="item"><div class="item-meta"><h4>Agua con gas</h4></div><span class="leader"></span><span class="price">$1.30</span></div>
+          <div class="item"><div class="item-meta"><h4>Agua sin gas</h4></div><span class="leader"></span><span class="price">$1.30</span></div>
+          <div class="item"><div class="item-meta"><h4>Gaseosas</h4></div><span class="leader"></span><span class="price">$2.17</span></div>
+          <div class="item"><div class="item-meta"><h4>Jugos naturales</h4></div><span class="leader"></span><span class="price">$3.04</span></div>
+          <div class="item"><div class="item-meta"><h4>Mounster</h4></div><span class="leader"></span><span class="price">$3.65</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========== GALERIA =========== -->
+<section class="galeria" id="galeria">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">Vívelo</span>
+      <h2 class="sec-title">Galería</h2>
+      <p class="sec-sub">Una mirada al ambiente y los sabores.</p>
+    </header>
+
+    <div class="gallery-feature">
+      <video class="gallery-video" id="heroVideo" loop muted playsinline preload="metadata" poster="img/g1.jpg">
+        <source src="img/video.mp4" type="video/mp4">
+      </video>
+      <button class="video-play" id="videoPlay" aria-label="Reproducir">
+        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      </button>
+      <div class="video-meta">
+        <span class="eyebrow">Featured</span>
+        <h3>El ambiente</h3>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <a class="g-tile g-1" href="#" data-img="img/g1.jpg"><img src="img/g1.jpg" alt="" loading="lazy"/><span class="g-label">Entradas</span></a>
+      <a class="g-tile g-2" href="#" data-img="img/g2.jpg"><img src="img/g2.jpg" alt="" loading="lazy"/><span class="g-label">Piqueos</span></a>
+      <a class="g-tile g-3" href="#" data-img="img/g3.jpg"><img src="img/g3.jpg" alt="" loading="lazy"/><span class="g-label">Despeche Mood</span></a>
+      <a class="g-tile g-4" href="#" data-img="img/g4.jpg"><img src="img/g4.jpg" alt="" loading="lazy"/><span class="g-label">Platos Fuertes</span></a>
+      <a class="g-tile g-5" href="#" data-img="img/g5.jpg"><img src="img/g5.jpg" alt="" loading="lazy"/><span class="g-label">Ladies Night</span></a>
+      <a class="g-tile g-6" href="#" data-img="img/g6.jpg"><img src="img/g6.jpg" alt="" loading="lazy"/><span class="g-label">Pastas</span></a>
+      <a class="g-tile g-7" href="#" data-img="img/g7.jpg"><img src="img/g7.jpg" alt="" loading="lazy"/><span class="g-label">Ensaladas</span></a>
+      <a class="g-tile g-8" href="#" data-img="img/g8.jpg"><img src="img/g8.jpg" alt="" loading="lazy"/><span class="g-label">Comida Urbana</span></a>
+    </div>
+
+    <div class="gallery-instagram">
+      <p>Más fotos en nuestro Instagram</p>
+      <a href="https://www.instagram.com/cachitaculebra/" target="_blank" rel="noopener" class="ig-link">
+        <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <span>@cachitaculebra</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" data-lb-close>
+    <svg viewBox="0 0 24 24" width="22" height="22"><path d="M6 6l12 12M6 18L18 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <img id="lbImg" src="" alt=""/>
+</div>
+
+<!-- =========== OPINA =========== -->
+<section class="opina" id="opina">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">Tu opinión</span>
+      <h2 class="sec-title">Califica tu <em>experiencia</em></h2>
+      <p class="sec-sub">Tu reseña nos ayuda a crecer.</p>
+    </header>
+
+    <div class="rating-grid">
+      <div class="rating-summary">
+        <div class="avg-block">
+          <strong id="avgScore">—</strong>
+          <div class="avg-stars" id="avgStars" aria-hidden="true">★★★★★</div>
+          <span id="avgCount">0 reseñas</span>
+        </div>
+      </div>
+
+      <form class="rate-form" id="rateForm">
+        <h3>Dinos qué te pareció</h3>
+        <div class="star-input" id="starInput" role="radiogroup" aria-label="Puntuación">
+          <button type="button" data-v="1" aria-label="1 estrella">★</button>
+          <button type="button" data-v="2" aria-label="2 estrellas">★</button>
+          <button type="button" data-v="3" aria-label="3 estrellas">★</button>
+          <button type="button" data-v="4" aria-label="4 estrellas">★</button>
+          <button type="button" data-v="5" aria-label="5 estrellas">★</button>
+        </div>
+        <input type="hidden" name="stars" id="starsValue" required />
+        <input type="text" name="name" id="rName" placeholder="Tu nombre" maxlength="40" required />
+        <textarea name="comment" id="rComment" rows="4" placeholder="Cuéntanos tu experiencia (opcional)" maxlength="400"></textarea>
+        <button type="submit" class="btn-menu"><span class="bm-label">Enviar reseña</span>
+          <span class="bm-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="rate-success" id="rateSuccess">¡Gracias! Tu reseña se guardó.</div>
+      </form>
+    </div>
+
+    <div class="reviews">
+      <h3>Reseñas recientes</h3>
+      <div class="reviews-list" id="reviewsList">
+        <div class="reviews-empty">Sé el primero en compartir tu experiencia.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="img/logo-gold.png" alt="" class="footer-medusa" />
+    <h3 class="footer-brand">Cachita Culebra</h3>
+    <p class="footer-handle">@cachitaculebra</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/cachitaculebra/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M14 8h2V5h-2c-2 0-3 1-3 3v2H9v3h2v8h3v-8h2.5l.5-3H14V9c0-.6.4-1 1-1z" fill="currentColor"/></svg></a>
+      <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M16 4v3a4 4 0 0 0 4 4v3a7 7 0 0 1-4-1.3V16a5 5 0 1 1-5-5h1v3h-1a2 2 0 1 0 2 2V4h3z" fill="currentColor"/></svg></a>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> · Cachita Culebra · Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
